@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'photo-library';
+  isTabVisible = false;
+
+  changeTabVisibilityMode() {
+    this.isTabVisible = !this.isTabVisible;
+  }
 }
