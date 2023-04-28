@@ -15,6 +15,7 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PhotoComponent } from './pages/photo/photo.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PhotoComponent } from './pages/photo/photo.component';
     MatButtonModule,
     MatSnackBarModule,
     MatCardModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ImagesService],
   bootstrap: [AppComponent]

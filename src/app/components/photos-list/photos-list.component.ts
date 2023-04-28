@@ -8,6 +8,7 @@ import { Image } from '../../models/Image';
 })
 export class PhotosListComponent {
   @Input() public images: Image[] | null = [];
+  @Input() public isLoading?: boolean;
   @Input() public imageActionText?: string;
   @Output() onImageSelected = new EventEmitter();
 

@@ -39,16 +39,42 @@ describe('PhotosComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    component.destroy$.next(true);
+    component.destroy$.complete();
+  });
+
   it('should create the component', () => {
     // Assert
     expect(component).toBeTruthy();
   });
 
   describe('ngOnInit', () => {
-    it('should get images on init', () => {
+    it('should call loadMorePhotos on init', () => {
+      // Arrange
+      const loadPhotosSpy = spyOn(component, 'loadMorePhotos');
+
+      // Act
+      component.ngOnInit();
+
       // Assert
-      expect(imagesService.getImages).toHaveBeenCalledWith(1);
-      expect(component.images$).toBeDefined();
+      expect(loadPhotosSpy).toHaveBeenCalled();
+    });
+  })
+
+  describe('loadMoreImages', () => {
+    it('should set loading to true and then false after 2 seconds', done => {
+      // Act
+      component.ngOnInit();
+
+      // Assert
+      expect(component.loading).toBe(true);
+
+      setTimeout(() => {
+        expect(component.loading).toBe(false);
+        expect(imagesService.getImages).toHaveBeenCalled();
+        done();
+      }, 2000);
     });
   })
 
