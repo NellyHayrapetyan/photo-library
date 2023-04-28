@@ -1,25 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PageNotFoundComponent } from './page-not-found.component';
 
-describe('AppComponent', () => {
+describe('PageNotFoundComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        PageNotFoundComponent
       ],
-      schemas: [
-        CUSTOM_ELEMENTS_SCHEMA
-      ]
     }).compileComponents();
   });
 
   it('should create', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(PageNotFoundComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });

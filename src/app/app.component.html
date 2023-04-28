@@ -1,8 +1,4 @@
-<nav>
-  <ul class="tab-wrapper" [ngClass]="isTabVisible ? 'tabsVisible' : 'tabsHidden'">
-    <li>Photos</li>
-    <li>Libraries</li>
-  </ul>
-  <img src="../assets/menu.svg" alt="menu icon" (click)="changeTabVisibilityMode()"/>
-</nav>
-<router-outlet></router-outlet>
+<app-dashboard></app-dashboard>
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>

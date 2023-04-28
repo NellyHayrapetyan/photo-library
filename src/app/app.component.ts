@@ -6,10 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'photo-library';
-  isTabVisible = false;
-
-  changeTabVisibilityMode() {
-    this.isTabVisible = !this.isTabVisible;
-  }
 }
