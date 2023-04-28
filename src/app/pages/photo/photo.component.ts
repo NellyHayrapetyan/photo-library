@@ -12,13 +12,13 @@ export class PhotoComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (history.state && history.state.data) {
       this.image = history.state.data;
     }
   }
 
-  removeImage() {
+  removeImage(): void {
     localStorage.removeItem(this.route.snapshot.params['id']);
     this.router.navigate(['../..', 'favorites']);
   }

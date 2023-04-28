@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
   isTabVisible = false;
 
-  changeTabVisibilityMode() {
+  changeTabVisibilityMode(): void {
     this.isTabVisible = !this.isTabVisible;
   }
 }

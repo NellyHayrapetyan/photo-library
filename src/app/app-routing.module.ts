@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PhotosComponent } from './pages/photos/photos.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { FavoritesComponent } from './pages/favorites/favorites.component';
-import { PhotoComponent } from './pages/photo/photo.component';
 
 const routes: Routes = [
   {
@@ -13,15 +10,16 @@ const routes: Routes = [
   },
   {
     path: 'photos',
-    component: PhotosComponent,
+    loadChildren: () => import('./pages/photos/photos.module').then(m => m.PhotosModule),
   },
   {
     path: 'photos/:id',
-    component: PhotoComponent,
+    loadChildren: () => import('./pages/photo/photo.module').then(m => m.PhotoModule),
   },
   {
     path: 'favorites',
-    component: FavoritesComponent
+    loadChildren: () => import('./pages/favorites/favorites.module').then(m => m.FavoritesModule),
+
   },
   {
     path: '**',

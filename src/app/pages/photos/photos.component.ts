@@ -14,7 +14,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
   public loading: boolean = false;
   constructor(private imageService: ImagesService, private snackBar: MatSnackBar) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadMorePhotos();
 
     fromEvent(window, 'scroll').pipe(
@@ -25,12 +25,12 @@ export class PhotosComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next(true)
     this.destroy$.complete()
   }
 
-  loadMorePhotos() {
+  loadMorePhotos(): void {
     this.loading = true;
     // set timeout to big value in order to make loader visible on scroll
     setTimeout(() => {
@@ -41,7 +41,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
     }, 2000)
   }
 
-  addToFavorites(image: Image) {
+  addToFavorites(image: Image): void {
     if (localStorage.getItem(image.id)) {
       this.snackBar.open(
         'Image already exists in favorites',
@@ -66,7 +66,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
     }
   }
 
-  private getRandomInt() {
+  private getRandomInt(): number {
     const min = Math.ceil(1);
     const max = Math.floor(30);
     return Math.floor(Math.random() * (max - min) + min);

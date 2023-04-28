@@ -12,7 +12,7 @@ export class PhotosListComponent {
   @Input() public imageActionText?: string;
   @Output() onImageSelected = new EventEmitter();
 
-  selectImage(image: Image) {
+  selectImage(image: Image): void {
     this.onImageSelected.emit(image);
   }
 }

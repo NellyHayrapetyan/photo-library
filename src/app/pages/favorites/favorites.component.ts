@@ -11,11 +11,11 @@ export class FavoritesComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.favoriteImages = Object.keys(localStorage).map((key: string) => ({ id: key, url: localStorage.getItem(key) || '' }));
   }
 
-  openSinglePicture(image: Image) {
+  openSinglePicture(image: Image): void {
     this.router.navigate(['photos', image.id], { state: { data: image.url } })
   }
 }
