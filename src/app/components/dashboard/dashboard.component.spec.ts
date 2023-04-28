@@ -23,21 +23,30 @@ describe('DashboardComponent', () => {
   });
 
   it('should initialize isTabVisible to false', () => {
+    // Assert
     expect(component.isTabVisible).toBe(false);
   });
 
   describe('changeTabVisibilityMode', () => {
     it('should set isTabVisible value from false to true when method is called', () => {
+      // Arrange
       component.isTabVisible = false;
 
+      // Act
       component.changeTabVisibilityMode();
+
+      // Assert
       expect(component.isTabVisible).toBe(true);
     });
 
     it('should set isTabVisible value from true to false when method is called', () => {
+      // Arrange
       component.isTabVisible = true;
 
+      // Act
       component.changeTabVisibilityMode();
+
+      // Assert
       expect(component.isTabVisible).toBe(false);
     });
   })

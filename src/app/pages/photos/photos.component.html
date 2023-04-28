@@ -1,0 +1,5 @@
+<app-photos-list
+  [imageActionText]="'Add to Favorites'"
+  [images]="images$ | async"
+  (onImageSelected)="addToFavorites($event)"
+></app-photos-list>

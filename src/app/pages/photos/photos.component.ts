@@ -3,12 +3,11 @@ import { ImagesService } from '../../services/images.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-photos-list',
-  templateUrl: './photos-list.component.html',
-  styleUrls: ['./photos-list.component.scss']
+  selector: 'app-photos',
+  templateUrl: './photos.component.html',
 })
-export class PhotosListComponent implements OnInit {
-  public images$?: Observable<string[]>;
+export class PhotosComponent implements OnInit {
+  public images$: Observable<string[]> = new Observable();
 
   constructor(private imageService: ImagesService) {}
 

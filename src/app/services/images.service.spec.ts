@@ -21,13 +21,17 @@ describe('ImagesService', () => {
 
   describe('getImages', () => {
     it('should retrieve images from the API', () => {
+      // Arrange
       const mockImages = [
         { download_url: 'https://picsum.photos/id/1/200/300' },
         { download_url: 'https://picsum.photos/id/2/200/300' },
         { download_url: 'https://picsum.photos/id/3/200/300' }
       ];
 
+      // Act
       service.getImages(1).subscribe(images => {
+
+        // Assert
         expect(images.length).toBe(3);
         expect(images).toEqual(mockImages.map(image => image.download_url));
       });
@@ -37,15 +41,18 @@ describe('ImagesService', () => {
     });
 
     it('should use GET to retrieve data', () => {
+      // Arrange
       const mockImages = [
         { download_url: 'https://picsum.photos/id/1/200/300' },
         { download_url: 'https://picsum.photos/id/2/200/300' },
         { download_url: 'https://picsum.photos/id/3/200/300' }
       ];
 
+      // Act
       service.getImages(1).subscribe();
-
       const req = httpMock.expectOne(`https://picsum.photos/v2/list?page=1&limit=30`);
+
+      // Assert
       expect(req.request.method).toEqual('GET');
       req.flush(mockImages);
     });

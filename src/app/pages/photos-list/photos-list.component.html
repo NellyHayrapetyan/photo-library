@@ -1,6 +1,0 @@
-<div class="images-wrapper">
-  <div *ngFor="let image of images$ | async" class="image-with-button">
-    <img [src]="image" alt="random image">
-    <button (click)="addToFavorites(image)">Add to Favorites</button>
-  </div>
-</div>
