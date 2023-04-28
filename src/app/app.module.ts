@@ -10,6 +10,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.components'
 import { ImagesService } from './services/images.service';
 import { PhotosListComponent } from './components/photos-list/photos-list.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatCardModule,
   ],
   providers: [ImagesService],
   bootstrap: [AppComponent]
