@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
 })
 export class FavoritesComponent implements OnInit {
-  public favoriteImages: string[] = [];
+  public favoriteImages: Image[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    this.favoriteImages = Object.keys(localStorage);
+    this.favoriteImages = Object.keys(localStorage).map((key: string) => ({ id: key, url: localStorage.getItem(key) || '' }));
   }
 
-  openSinglePicture(image: string) {
-    //ToDo navigate to single image page
+  openSinglePicture(image: Image) {
+    this.router.navigate(['photos', image.id], { state: { data: image.url } })
   }
 }

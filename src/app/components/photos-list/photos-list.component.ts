@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-photos-list',
@@ -6,11 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./photos-list.component.scss']
 })
 export class PhotosListComponent {
-  @Input() public images: string[] | null = [];
+  @Input() public images: Image[] | null = [];
   @Input() public imageActionText?: string;
   @Output() onImageSelected = new EventEmitter();
 
-  selectImage(image: string) {
+  selectImage(image: Image) {
     this.onImageSelected.emit(image);
   }
 }

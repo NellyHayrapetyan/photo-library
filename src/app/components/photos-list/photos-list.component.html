@@ -1,6 +1,6 @@
 <div class="images-wrapper" *ngIf="images">
   <mat-card *ngFor="let image of images" class="image-with-button">
-    <img [src]="image" alt="random image">
+    <img [src]="image.url" alt="random image">
     <button mat-raised-button (click)="selectImage(image)">{{ imageActionText }}</button>
   </mat-card>
 </div>

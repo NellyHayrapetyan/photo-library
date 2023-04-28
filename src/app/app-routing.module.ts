@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PhotosComponent } from './pages/photos/photos.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { PhotoComponent } from './pages/photo/photo.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'photos',
-    component: PhotosComponent
+    component: PhotosComponent,
+  },
+  {
+    path: 'photos/:id',
+    component: PhotoComponent,
   },
   {
     path: 'favorites',

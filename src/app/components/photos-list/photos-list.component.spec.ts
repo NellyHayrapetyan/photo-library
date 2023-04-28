@@ -29,7 +29,7 @@ describe('PhotosListComponent', () => {
 
   it('should emit image when selectImage is called', () => {
     // Arrange
-    const image = 'https://picsum.photos/id/1/200/300';
+    const image = {id: '1', url: 'https://picsum.photos/id/1/200/300'};
     const spy = spyOn(component.onImageSelected, 'emit');
 
     // Act

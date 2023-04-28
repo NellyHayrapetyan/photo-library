@@ -12,6 +12,10 @@ describe('PhotosComponent', () => {
   let fixture: ComponentFixture<PhotosComponent>;
   let imagesService: ImagesService;
   let snackBar: MatSnackBar;
+  const mockImages = [
+    { url: 'https://picsum.photos/id/1/200/300', id: '1' },
+    { url: 'https://picsum.photos/id/2/200/300', id: '2' },
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -30,7 +34,7 @@ describe('PhotosComponent', () => {
     component = fixture.componentInstance;
     imagesService = TestBed.inject(ImagesService);
     snackBar = TestBed.inject(MatSnackBar);
-    spyOn(imagesService, 'getImages').and.returnValue(of(['image1.jpg', 'image2.jpg']));
+    spyOn(imagesService, 'getImages').and.returnValue(of(mockImages));
     spyOn(snackBar, 'open').and.stub();
     fixture.detectChanges();
   });
@@ -55,19 +59,19 @@ describe('PhotosComponent', () => {
       spyOn(localStorage, 'setItem');
 
       // Act
-      component.addToFavorites('image1.jpg');
+      component.addToFavorites(mockImages[0]);
 
       // Assert
-      expect(localStorage.setItem).toHaveBeenCalledWith('image1.jpg', 'image1.jpg');
+      expect(localStorage.setItem).toHaveBeenCalledWith(mockImages[0].id, mockImages[0].url);
     });
 
     it('should not add image to favorites if it already exists show snackbar', () => {
       // Arrange
-      spyOn(localStorage, 'getItem').and.returnValue('image1.jpg');
+      spyOn(localStorage, 'getItem').and.returnValue(mockImages[0].url);
       spyOn(localStorage, 'setItem');
 
       // Act
-      component.addToFavorites('image1.jpg');
+      component.addToFavorites(mockImages[0]);
 
       // Assert
       expect(localStorage.setItem).not.toHaveBeenCalled();

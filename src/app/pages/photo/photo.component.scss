@@ -1,0 +1,12 @@
+.single-photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+
+  img {
+    width: calc(100vw - 100px);
+    margin-bottom: 30px;
+  }
+}

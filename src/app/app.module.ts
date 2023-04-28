@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PhotoComponent } from './pages/photo/photo.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DashboardComponent,
     PhotosListComponent,
     FavoritesComponent,
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,

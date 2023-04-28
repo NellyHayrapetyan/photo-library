@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ImagesService } from '../../services/images.service';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Image } from '../../models/Image';
 
 @Component({
   selector: 'app-photos',
   templateUrl: './photos.component.html',
 })
 export class PhotosComponent implements OnInit {
-  public images$: Observable<string[]> = new Observable();
+  public images$: Observable<Image[]> = new Observable();
 
   constructor(private imageService: ImagesService, private snackBar: MatSnackBar) {}
 
@@ -16,8 +17,8 @@ export class PhotosComponent implements OnInit {
     this.images$ = this.imageService.getImages(1);
   }
 
-  addToFavorites(image: string) {
-    if (localStorage.getItem(image)) {
+  addToFavorites(image: Image) {
+    if (localStorage.getItem(image.id)) {
       this.snackBar.open(
         'Image already exists in favorites',
         'Close',
@@ -28,7 +29,7 @@ export class PhotosComponent implements OnInit {
         })
 
     } else {
-      localStorage.setItem(image, image);
+      localStorage.setItem(image.id, image.url);
     }
   }
 }
